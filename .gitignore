@@ -168,3 +168,4 @@ cython_debug/
 rtdetr_pytorch/output/*
 rtdetr_pytorch/dataset/*
 rtdetr_pytorch/images/
+./datatrs.py
