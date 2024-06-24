@@ -10,6 +10,7 @@ yolo_format_classes_path='/home/zecoy/datasets/GIR/RGB/names.txt'     #类别文
 yolo_format_annotation_path='/home/zecoy/datasets/GIR/labels/val/'        #yolo格式标签所在文件夹
 img_pathDir='/home/zecoy/datasets/GIR/RGB/val/'                        #图片所在文件夹
 
+name = os.path.join(coco_format_save_path,"val"+ '.json')
 
 
 with open(yolo_format_classes_path,'r') as fr:                               #打开并读取类别文件
@@ -77,6 +78,6 @@ for i,imageFile in enumerate(imageFileList):
         bbox_dict['segmentation']=[[xmin,ymin,xmax,ymin,xmax,ymax,xmin,ymax]]
         write_json_context['annotations'].append(bbox_dict)                               #将每一个由字典存储的bounding box信息添加到'annotations'列表中
 
-name = os.path.join(coco_format_save_path,"val"+ '.json')
+
 with open(name,'w') as fw:                                                                #将字典信息写入.json文件中
     json.dump(write_json_context,fw,indent=2)
